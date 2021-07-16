@@ -38,10 +38,18 @@ export default {
     },
     mounted(){
         window.addEventListener('keyup', (event) => {
-            console.log(event.key);
-            if(event.key === 'Escape'){
-                console.log('escape');
+            if(event.code === 'Escape'){
                 this.modale = !this.modale
+            }else if(0 < event.code.split('pad')[1] && event.code.split('pad')[1] < 7){
+                console.log('card');
+            }else if(0 < event.code.split('Digit')[1] && event.code.split('Digit')[1] < 7){
+                console.log('card');
+            }else if(event.key === '0'){
+                console.log('error');
+            }else if(event.key === '.'){
+                console.log('remove error');
+            }else if(event.key === 'Space'){
+                console.log('next theme');
             }
         })
     },
