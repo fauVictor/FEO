@@ -15,6 +15,7 @@ export default {
                 theme.answers.map((answer, key) => {
                     answer.id = key,
                     answer.score = scores[key]
+                    answer.isActive = false
                 })
             })
         },

@@ -1,15 +1,15 @@
 <template>
-    <vue-flip v-on:click="handleClick" v-model="isActive" height="100%" width="100%">
+    <vue-flip v-model="card.isActive" height="100%" width="100%">
         <template v-slot:front>
             <div class="card--front">
-                <p>front</p>
+                <p>{{ id + 1 }}</p>
             </div>
         </template>
         <template v-slot:back>
         <div class="card--back">
-            <p class="card--back--item card--back--answer">reponse</p>
-            <p class="card--back--item card--back--vote">10 % des votes</p>
-            <p class="card--back--item card--back--point">16</p>
+            <p class="card--back--item card--back--answer">{{ card.answer }}</p>
+            <p class="card--back--item card--back--vote">{{ card.vote }} % des votes</p>
+            <p class="card--back--item card--back--point">{{ card.point }}</p>
         </div>
         </template>
     </vue-flip>
@@ -23,17 +23,18 @@ export default {
     components:{
         'vue-flip': VueFlip
     },
+    props: ['id'],
     data(){
         return {
             modale: false,
             isActive: false
         }
     },
-    methods: {
-        handleClick(){
-            this.isActive = !this.isActive
+    computed: {
+        card(){
+            return this.$store.getters.getCard(this.$props.id)
         }
-    },
+    }
 }
 </script>
 

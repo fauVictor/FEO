@@ -8,7 +8,7 @@ export default {
             state.question = question
         },
         SELECT_CARD(state, id){
-            state.answers.find(answer => answer.id === id + 1)
+            state.answers.find(answer => answer.id === id - 1).isActive = !state.answers.find(answer => answer.id === id - 1).isActive
         }
     },
     getters: {
@@ -17,6 +17,9 @@ export default {
         },
         getAnswers(state){
             return state.answers
+        },
+        getCard: (state) => (id) => {
+            return state.answers.find((answer => answer.id === parseInt(id)))
         }
     },
     actions: {

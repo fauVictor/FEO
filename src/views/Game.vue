@@ -15,10 +15,10 @@
           </div>
       </div>
       <div class="question">
-          To be or not to be ?
+          {{ question }}
       </div>
       <div class="answers">
-          <card v-for="i in 7" :key="i"/>
+          <card v-for="card in cards" :key="card.id" :id="card.id"/>
       </div>
   </section>
 </template>
@@ -42,9 +42,11 @@ export default {
         window.addEventListener('keyup', (event) => {
             if(event.code === 'Escape'){
                 this.modale = !this.modale
-            }else if(0 < event.code.split('pad')[1] && event.code.split('pad')[1] < 7){
+            }else if(0 < event.code.split('pad')[1] && event.code.split('pad')[1] <= 7){
+                console.log(parseInt(event.key));
                 this.$store.dispatch('SELECT_CARD', parseInt(event.key))
-            }else if(0 < event.code.split('Digit')[1] && event.code.split('Digit')[1] < 7){
+            }else if(0 < event.code.split('Digit')[1] && event.code.split('Digit')[1] <= 7){
+                console.log(parseInt(event.key));
                 this.$store.dispatch('SELECT_CARD', parseInt(event.key))
             }else if(event.key === '0'){
                 console.log('error');
@@ -62,6 +64,14 @@ export default {
         settings(){
             console.log('settings');
         }
+    },
+    computed: {
+        question (){
+            return this.$store.getters.getQuestion
+        },
+        cards (){
+            return this.$store.getters.getAnswers
+        },
     }
 }
 </script>
