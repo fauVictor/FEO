@@ -37,13 +37,15 @@ export default {
         }
     },
     mounted(){
+        this.$store.dispatch('INIT_GAME')
+
         window.addEventListener('keyup', (event) => {
             if(event.code === 'Escape'){
                 this.modale = !this.modale
             }else if(0 < event.code.split('pad')[1] && event.code.split('pad')[1] < 7){
-                console.log('card');
+                this.$store.dispatch('SELECT_CARD', parseInt(event.key))
             }else if(0 < event.code.split('Digit')[1] && event.code.split('Digit')[1] < 7){
-                console.log('card');
+                this.$store.dispatch('SELECT_CARD', parseInt(event.key))
             }else if(event.key === '0'){
                 console.log('error');
             }else if(event.key === '.'){

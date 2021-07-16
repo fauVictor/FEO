@@ -31,14 +31,6 @@ export default
                 answer: 'yeah',
                 vote: 5
             },
-            {
-                answer: 'yup',
-                vote: 4
-            },
-            {
-                answer: 'yeah',
-                vote: 2
-            },
         ]
     },
     {
@@ -71,14 +63,6 @@ export default
             {
                 answer: 'yeah',
                 vote: 5
-            },
-            {
-                answer: 'yup',
-                vote: 4
-            },
-            {
-                answer: 'yeah',
-                vote: 2
             },
         ]
     },

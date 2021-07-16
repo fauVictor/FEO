@@ -6,6 +6,9 @@ export default {
     mutations: {
         SET_QUESTION(state, question){
             state.question = question
+        },
+        SELECT_CARD(state, id){
+            state.answers.find(answer => answer.id === id + 1)
         }
     },
     getters: {
