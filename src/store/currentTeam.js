@@ -7,7 +7,13 @@ export default{
     mutations: {
         RESET_SCORE(state){
             state.score = 0
-        }
+        },
+        INCREMENT_SCORE(state, point){
+            state.score += point
+        },
+        DECREMENT_SCORE(state, point){
+            state.score -= point
+        },
     },
     getters: {
         getError(state){

@@ -75,7 +75,7 @@ export default {
             return this.$store.getters.getAnswers
         },
         teamScore (){
-            return this.$store.getTeamScore
+            return this.$store.getters.getTeamScore
         }
     }
 }

@@ -55,9 +55,9 @@ export default createStore({
         SELECT_CARD(context, id){
             context.commit('SELECT_CARD', id)
             if(context.state.currentTheme.answers.find(answer => answer.id === id - 1).isActive){
-                console.log('ajouter des points');
+                context.commit('INCREMENT_SCORE', context.state.currentTheme.answers.find(answer => answer.id === id - 1).score)
             }else{
-                console.log('retirer des points');
+                context.commit('DECREMENT_SCORE', context.state.currentTheme.answers.find(answer => answer.id === id - 1).score)
             }
         }
     }
