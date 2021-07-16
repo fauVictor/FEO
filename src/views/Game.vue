@@ -20,6 +20,9 @@
       <div class="answers">
           <card v-for="card in cards" :key="card.id" :id="card.id"/>
       </div>
+
+    <img src="@/assets/logos/logo_1.png" class="logo logo_1" alt="">
+    <img src="@/assets/logos/logo_2.png" class="logo logo_2" alt="">
   </section>
 </template>
 
@@ -86,7 +89,7 @@ section{
     min-width: 100% !important;
     min-height: 100% !important;
     display: grid;
-    grid-template-rows: 10vh 5vh 60vh 10vh;
+    grid-template-rows: 10vh 5vh 60vh 10vh 10vh 5vh;
     grid-template-columns: 10% 1fr 10%;
 }
 
