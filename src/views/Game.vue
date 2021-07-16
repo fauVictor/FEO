@@ -8,10 +8,10 @@
   <section>
       <div class="banner">
           <div class="banner--score">
-              <p>score : 1000</p>
+              <p>score : {{ teamScore }}</p>
           </div>
           <div class="banner--errors">
-              errors
+              <error v-for="i in 3" :key="i" :id="i"/>
           </div>
       </div>
       <div class="question">
@@ -26,10 +26,12 @@
 <script>
 
 import Card from '@/components/Card.vue'
+import ErrorBubble from '@/components/Error.vue'
 
 export default {
     components: {
-        'card': Card
+        'card': Card,
+        'error': ErrorBubble
     },
     data(){
         return {
@@ -72,6 +74,9 @@ export default {
         cards (){
             return this.$store.getters.getAnswers
         },
+        teamScore (){
+            return this.$store.getTeamScore
+        }
     }
 }
 </script>
@@ -92,6 +97,12 @@ section{
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.banner--errors{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
 }
 
 .question{
