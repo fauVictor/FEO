@@ -51,9 +51,9 @@ export default {
                 console.log(parseInt(event.key));
                 this.$store.dispatch('SELECT_CARD', parseInt(event.key))
             }else if(event.key === '0'){
-                console.log('error');
+                this.$store.dispatch('INCREMENT_ERROR')
             }else if(event.key === '.'){
-                console.log('remove error');
+                this.$store.commit('DECREMENT_ERROR')
             }else if(event.key === 'Space'){
                 console.log('next theme');
             }
@@ -86,7 +86,7 @@ section{
     min-width: 100% !important;
     min-height: 100% !important;
     display: grid;
-    grid-template-rows: 10vh 5vh 75vh 10vh;
+    grid-template-rows: 10vh 5vh 60vh 10vh;
     grid-template-columns: 10% 1fr 10%;
 }
 

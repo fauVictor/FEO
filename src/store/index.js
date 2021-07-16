@@ -59,6 +59,9 @@ export default createStore({
             }else{
                 context.commit('DECREMENT_SCORE', context.state.currentTheme.answers.find(answer => answer.id === id - 1).score)
             }
-        }
+        },
+        INCREMENT_ERROR(context){
+            context.commit('INCREMENT_ERROR')
+        },
     }
 })

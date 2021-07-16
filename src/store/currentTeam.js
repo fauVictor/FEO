@@ -14,6 +14,12 @@ export default{
         DECREMENT_SCORE(state, point){
             state.score -= point
         },
+        INCREMENT_ERROR(state){
+            state.error++
+        },
+        DECREMENT_ERROR(state){
+            state.error--
+        },
     },
     getters: {
         getError(state){
