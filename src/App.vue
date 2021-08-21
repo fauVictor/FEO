@@ -1,11 +1,14 @@
 <template>
-    <router-view/>
+    <game />
 </template>
 
 <script>
+
+import Game from './views/Game.vue'
+
 export default {
-    mounted(){
-        this.$store.dispatch('INIT_APP')
+    components: {
+        'game': Game
     }
 }
 </script>

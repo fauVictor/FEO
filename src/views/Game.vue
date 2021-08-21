@@ -8,7 +8,7 @@
   <section>
       <div class="banner">
           <div class="banner--score">
-              <p>score : {{ teamScore }}</p>
+              <p>Score : {{ teamScore }}</p>
           </div>
           <div class="banner--errors">
               <error v-for="i in 3" :key="i" :id="i"/>
@@ -21,8 +21,10 @@
           <card v-for="card in cards" :key="card.id" :id="card.id"/>
       </div>
 
+
     <img src="@/assets/logos/logo_1.png" class="logo logo_1" alt="">
     <img src="@/assets/logos/logo_2.png" class="logo logo_2" alt="">
+
   </section>
 </template>
 
@@ -42,6 +44,7 @@ export default {
         }
     },
     mounted(){
+        this.$store.dispatch('INIT_APP')
         this.$store.dispatch('INIT_GAME')
 
         window.addEventListener('keyup', (event) => {
@@ -57,8 +60,9 @@ export default {
                 this.$store.dispatch('INCREMENT_ERROR')
             }else if(event.key === '.'){
                 this.$store.commit('DECREMENT_ERROR')
-            }else if(event.key === 'Space'){
-                console.log('next theme');
+            }else if(event.code === 'Space'){
+                console.log('test');
+                this.$store.dispatch('PASS_THEME')
             }
         })
     },
@@ -89,7 +93,7 @@ section{
     min-width: 100% !important;
     min-height: 100% !important;
     display: grid;
-    grid-template-rows: 10vh 5vh 60vh 10vh 10vh 5vh;
+    grid-template-rows: 10vh 15vh 45vh 7vh 13vh 10vh;
     grid-template-columns: 10% 1fr 10%;
 }
 
@@ -108,14 +112,20 @@ section{
     column-gap: 10px;
 }
 
+.banner--score{
+    font-size: 26pt;
+    font-weight: 800;
+}
+
 .question{
     grid-row: 2/2;
     grid-column: 2/2;
 
     justify-self: center;
+    align-self: center;
 
     font-weight: 800;
-    font-size: 24pt;
+    font-size: 26pt;
 }
 
 .answers{
@@ -126,7 +136,7 @@ section{
     justify-self: center;
 
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     row-gap: 10px;
 }
 

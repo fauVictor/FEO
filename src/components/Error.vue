@@ -1,5 +1,5 @@
 <template>
-    <vue-flip v-model="isActive" height="45px" width="45px">
+    <vue-flip v-model="isActive" height="60px" width="60px">
         <template v-slot:front>
             <div class="error error--front">
                 <div class="circle"></div>
@@ -34,8 +34,8 @@ export default {
 
 <style>
 .error{
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
 }
 .error img{
     width: 100%;
@@ -43,8 +43,8 @@ export default {
 }
 .circle {
     box-sizing: border-box;
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
     border: solid black 2px;
     border-radius: 100%;
 }

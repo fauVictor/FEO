@@ -2,6 +2,8 @@ export default {
     state: [],
     mutations: {
         ADD_THEME(state, theme = {}){
+
+            console.log('test');
             state.push(theme)
         },
         DELETE_THEME(state, id){
