@@ -65,5 +65,5 @@ Puis dans le fichier ```FEO/public/index.html``` il faut faire la modification s
     </style>
 ```
 
-Puis dans les composants, il faudra éditer ajouter une ligne de CSS pour mettre à jour la typographie
+Puis dans les composants, il faudra modifier une ligne de CSS pour mettre à jour la typographie
 utilisée.
